@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="package" method="upgrade">
-	<name>JComments package</name>
+	<name>JComments Joomla 6 Patch Build</name>
 	<author>JComments team</author>
-	<creationDate>June 2024</creationDate>
+	<creationDate>July 2026</creationDate>
 	<packagename>jcomments</packagename>
-	<version>4.0.35</version>
+	<version>5.0.0-bsl.1</version>
 	<url>https://github.com/exstreme/Jcomments-4</url>
-	<packager>JComments team</packager>
-	<packagerurl>https://github.com/exstreme/Jcomments-4</packagerurl>
-	<description>JComments lets your users comment on content items</description>
+	<packager>Vasiliev Alexander, BSL-World</packager>
+	<packagerurl>https://github.com/BSL-World/Jcomments-4</packagerurl>
+	<description>Unofficial Joomla 6 compatibility patch build based on JComments 5.0.0 Beta by exstreme. Additional fixes and testing by Vasiliev Alexander, BSL-World.</description>
 
 	<scriptfile>pkg_jcomments.php</scriptfile>
 	<files folder="packages">
@@ -24,15 +24,8 @@
 	</files>
 
 	<compatibility>
-		<version>4</version>
-		<version>5</version>
+		<version>6</version>
 	</compatibility>
 
 	<blockChildUninstall>true</blockChildUninstall>
-
-	<updateservers>
-		<server type="extension" priority="1" name="JComments Update Site">
-			<![CDATA[https://raw.githubusercontent.com/exstreme/Jcomments-4/master/update-jcomments.xml]]>
-		</server>
-	</updateservers>
 </extension>

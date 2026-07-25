@@ -174,7 +174,7 @@ class JCommentsModelComments extends JCommentsModelList
 	{
 		$user         = Factory::getApplication()->getIdentity();
 		$language     = Factory::getApplication()->getLanguage();
-		$table        = $this->getTable($this->tableName, $this->tablePrefix);
+		$table = \Joomla\CMS\Table\Table::getInstance('Comment', 'JCommentsTable', ['dbo' => $this->getDbo()]);
 		$canEditState = Factory::getApplication()->getIdentity()->authorise('core.edit.state', $this->option);
 
 		$lastLanguage = '';

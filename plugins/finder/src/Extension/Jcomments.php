@@ -176,32 +176,7 @@ final class Jcomments extends Adapter implements SubscriberInterface
 	 * @since   2.5
 	 * @throws  \Exception on database error.
 	 */
-	public function onFinderAfterSave(FinderEvent\AfterSaveEvent $event): void
-	{
-		$context = $event->getContext();
-		$row     = $event->getItem();
-		$isNew   = $event->getIsNew();
-
-		// We only want to handle articles here.
-		if ($context === 'com_content.article' || $context === 'com_content.form') {
-			// Check if the access levels are different.
-			if (!$isNew && $this->old_access != $row->access) {
-				// Process the change.
-				$this->itemAccessChange($row);
-			}
-
-			// Reindex the item.
-			$this->reindex($row->id);
-		}
-
-		// Check for access changes in the category.
-		if ($context === 'com_categories.category') {
-			// Check if the access levels are different.
-			if (!$isNew && $this->old_cataccess != $row->access) {
-				$this->categoryAccessChange($row);
-			}
-		}
-	}
+	public function onFinderAfterSave(FinderEvent\AfterSaveEvent $event): void	{}
 
 	/**
 	 * Smart Search before content save method.
@@ -397,4 +372,8 @@ final class Jcomments extends Adapter implements SubscriberInterface
 
 		return $query;
 	}
-}
+    protected function checkItemAccess($row) {}
+    protected function checkCategoryAccess($row) {}
+    protected function itemAccessChange($row) {}
+    protected function categoryAccessChange($row) {}
+	}
